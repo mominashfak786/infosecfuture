@@ -1,39 +1,90 @@
-body {
-    background-color: #fbfbfb;
-    }
-    @media (min-width: 991.98px) {
-    main {
-    padding-left: 240px;
-    }
-    }
-    
-    /* Sidebar */
-    .sidebar {
+.sidebar {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    padding: 58px 0 0; /* Height of navbar */
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-
+    padding: 62px 0 0; /* Height of navbar */
+    box-shadow: 0 5px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
     z-index: 600;
-    }
-    
-    @media (max-width: 991.98px) {
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+  @media (max-width: 991.98px) {
     .sidebar {
-    width: 100%;
+      width: 80%;
     }
-    }
-    .sidebar .active {
-    border-radius: 5px;
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-    }
-    
-    .sidebar-sticky {
-    position: relative;
+  }
+  
+  .sidebar .list-group-item {
+    border-radius: 10px;
+  }
+  
+  .sidebar-sticky {
+    position: sticky;
     top: 0;
     height: calc(100vh - 48px);
     padding-top: 0.5rem;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+  
+  .main-content {
+    margin-left: 300px; /* Same as the width of the sidebar */
+    margin-top: 70px; /* Height of navbar */
+  }
+  
+  @media (max-width: 991.98px) {
+    .main-content {
+      margin-left: 0;
+      margin-top: 112px; /* Height of navbar on small screens */
     }
+  }
+  
+
+  .companydetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    position: relative; /* Add position relative */
+  }
+  
+  .button-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -150px;
+    width: 146%;
+    height: 1px;
+    background-color: #007bff; /* Blue color */
+  }
+  
+  .section-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: rgba(0, 0, 0, 0.962);
+    border: 1px solid #f6f2f2;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+  }
+  
+  .section-button:hover {
+    background-color: rgb(255, 255, 255);
+    border-color: #0040ff;
+    color: #000000;
+  }
+  
+
+  
+  .section-data {
+  width: 100%;
+  
+  }
+  .code{
+    padding: 30px;
+  }
+  

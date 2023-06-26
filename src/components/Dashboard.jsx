@@ -1,6 +1,896 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Dashboard.css";
+
+const RenderForm = () => {
+  const [formData, setFormData] = useState({
+    companyName: "",
+    industry: "",
+    description: "",
+    website: "",
+    employeeStrength: "",
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
+
+  const handleCancel = () => {
+    setFormData({
+      companyName: "",
+      industry: "",
+      description: "",
+      website: "",
+      employeeStrength: "",
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    console.log("FormSaveted:", formData);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="mb-1">
+        <label htmlFor="companyName" className="form-label">
+          Company Name:
+        </label>
+        <input
+          type="text"
+          id="companyName"
+          className="form-control"
+          value={formData.companyName}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-1">
+        <label htmlFor="industry" className="form-label">
+          Industry:
+        </label>
+        <input
+          type="text"
+          id="industry"
+          className="form-control"
+          value={formData.industry}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-1">
+        <label htmlFor="description" className="form-label">
+          Description:
+        </label>
+        <textarea
+          id="description"
+          className="form-control"
+          rows="2"
+          value={formData.description}
+          onChange={handleChange}
+        ></textarea>
+      </div>
+      <div className="mb-1">
+        <label htmlFor="website" className="form-label">
+          Website:
+        </label>
+        <input
+          type="text"
+          id="website"
+          className="form-control"
+          value={formData.website}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="employeeStrength" className="form-label">
+          Employee Strength:
+        </label>
+        <input
+          type="text"
+          id="employeeStrength"
+          className="form-control"
+          value={formData.employeeStrength}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="d-flex justify-content-center">
+        <button type="button" className="btn btn-secondary me-2" onClick={handleCancel}>
+          Cancel
+        </button>
+        <button type="submit" className="btn btn-primary">
+         Save
+        </button>
+      </div>
+    </form>
+
+  );
+};
+
+const AboutSection = () => {
+  return (
+    <div className="code">
+      <RenderForm />
+    </div>
+  );
+};
+
+const ContactSection = () => {
+  const [contactData, setContactData] = useState([]);
+  const [newContact, setNewContact] = useState({
+    personName: "",
+    contactNumber: "",
+    emailAddress: "",
+    designation: "",
+  });
+
+  const handleAddContact = () => {
+    setContactData((prevData) => [...prevData, newContact]);
+    setNewContact({
+      personName: "",
+      contactNumber: "",
+      emailAddress: "",
+      designation: "",
+    });
+  };
+  const handleCancel = () => {
+    setNewContact({
+      personName: "",
+      contactNumber: "",
+      emailAddress: "",
+      designation: "",
+    });
+  };
+  // const handleDeleteContact = (index) => {
+  //   setContactData((prevData) => prevData.filter((_, i) => i !== index));
+  // };
+  return (
+    <div className="code">
+    <div className="row">
+  <div className="col-md-6">
+    <div className="mb-1">
+      <label htmlFor="title" className="form-label">
+        Title:
+      </label>
+      <select
+        id="title"
+        className="form-select"
+        value={newContact.title}
+        onChange={(e) =>
+          setNewContact((prevContact) => ({
+            ...prevContact,
+            title: e.target.value,
+          }))
+        }
+      >
+        <option value="">Select title</option>
+        <option value="Mr">Mr.</option>
+        <option value="Mrs">Mrs.</option>
+        <option value="Ms">Miss.</option>
+        <option value="Dr">Ms.</option>
+      </select>
+    </div>
+    <div className="mb-1">
+      <label htmlFor="contactNumber" className="form-label">
+        Contact Number:
+      </label>
+      <input
+        type="text"
+        id="contactNumber"
+        className="form-control"
+        value={newContact.contactNumber}
+        onChange={(e) =>
+          setNewContact((prevContact) => ({
+            ...prevContact,
+            contactNumber: e.target.value,
+          }))
+        }
+      />
+          </div>
+  </div>
+  <div className="col-md-6">
+
+          <div className="mb-1">
+      <label htmlFor="personName" className="form-label">
+        Contact Person Name:
+      </label>
+      <input
+        type="text"
+        id="personName"
+        className="form-control"
+        value={newContact.personName}
+        onChange={(e) =>
+          setNewContact((prevContact) => ({
+            ...prevContact,
+            personName: e.target.value,
+          }))
+        }
+      />
+    </div>
+    <div className="mb-1">
+      <label htmlFor="emailAddress" className="form-label">
+        Email Address:
+      </label>
+      <input
+        type="text"
+        id="emailAddress"
+        className="form-control"
+        value={newContact.emailAddress}
+        onChange={(e) =>
+          setNewContact((prevContact) => ({
+            ...prevContact,
+            emailAddress: e.target.value,
+          }))
+        }
+      />
+    </div>
+    <div className="mb-1">
+      <label htmlFor="designation" className="form-label">
+        Designation:
+      </label>
+      <input
+        type="text"
+        id="designation"
+        className="form-control"
+        value={newContact.designation}
+        onChange={(e) =>
+          setNewContact((prevContact) => ({
+            ...prevContact,
+            designation: e.target.value,
+          }))
+        }
+      />
+    </div>
+  </div>
+</div>
+
+      <div>
+        <button type="button" className="btn btn-primary" onClick={handleAddContact}>
+          + Add New
+        </button>
+      </div>
+      <div className="mt-3">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Contact Person</th>
+              <th>Contact Number</th>
+              <th>Email Address</th>
+              <th>Designation</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {contactData.map((contact, index) => (
+              <tr key={index}>
+                <td>{contact.personName}</td>
+                <td>{contact.contactNumber}</td>
+                <td>{contact.emailAddress}</td>
+                <td>{contact.designation}</td>
+                <td>
+                  {/* <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => handleDeleteContact(index)}
+                  >
+                    Delete
+                  </button> */}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="d-flex justify-content-center">
+        <button type="button" className="btn btn-secondary me-2" onClick={handleCancel}>
+          Cancel
+        </button>
+        <button type="submit" className="btn btn-primary">
+         Save
+        </button>
+      </div>
+    
+    </div>
+  );
+};
+
+const LegalSection = () => {
+  const [legalInfo, setLegalInfo] = useState({
+    companyType: "",
+    registrationNumber: "",
+    yearOfRegistration: "",
+    tinGstinNumber: "",
+    lastFYTurnover: "",
+    addressLine1: "",
+    addressLine2: "",
+    country: "",
+    city: "",
+    pincode: "",
+    state: "",
+  });
+  const handleCancel = () => {
+    setLegalInfo({
+      companyType: "",
+      registrationNumber: "",
+      yearOfRegistration: "",
+      tinGstinNumber: "",
+      lastFYTurnover: "",
+      addressLine1: "",
+      addressLine2: "",
+      country: "",
+      city: "",
+      pincode: "",
+      state: "",
+    });
+  };
+  
+
+  return (
+    <div className="code">
+   
+   <div className="row">
+  <div className="col-md-6">
+    <div className="mb-1">
+      <label htmlFor="companyType" className="form-label">
+        Company Type:
+      </label>
+      <select
+        id="companyType"
+        className="form-select"
+        value={legalInfo.companyType}
+        onChange={(e) =>
+          setLegalInfo((prevLegalInfo) => ({
+            ...prevLegalInfo,
+            companyType: e.target.value,
+          }))
+        }
+      >
+        <option value="">Select company type</option>
+        <option value="Type 1">Sole Propietorship</option>
+        <option value="Type 2">Private Limited </option>
+        <option value="Type 3">Not-for-profit Organization</option>
+              <option value="Type 4">One person Company</option>
+        <option value="Type 4">Limited Liability Partnership</option>
+              
+      </select>
+    </div>
+    
+    <div className="mb-1">
+      <label htmlFor="yearOfRegistration" className="form-label">
+        Year of Registration:
+      </label>
+      <input
+        type="text"
+        id="yearOfRegistration"
+        className="form-control"
+        value={legalInfo.yearOfRegistration}
+        onChange={(e) =>
+          setLegalInfo((prevLegalInfo) => ({
+            ...prevLegalInfo,
+            yearOfRegistration: e.target.value,
+          }))
+        }
+      />
+          </div>
+          <div className="mb-1">
+      <label htmlFor="lastFYTurnover" className="form-label">
+        Last FY Turnover:
+      </label>
+      <input
+        type="text"
+        id="lastFYTurnover"
+        className="form-control"
+        value={legalInfo.lastFYTurnover}
+        onChange={(e) =>
+          setLegalInfo((prevLegalInfo) => ({
+            ...prevLegalInfo,
+            lastFYTurnover: e.target.value,
+          }))
+        }
+      />
+          </div>
+  </div>
+  <div className="col-md-6">
+  
+          <div className="mb-1">
+      <label htmlFor="registrationNumber" className="form-label">
+        Registration Number:
+      </label>
+      <input
+        type="text"
+        id="registrationNumber"
+        className="form-control"
+        value={legalInfo.registrationNumber}
+        onChange={(e) =>
+          setLegalInfo((prevLegalInfo) => ({
+            ...prevLegalInfo,
+            registrationNumber: e.target.value,
+          }))
+        }
+      />
+    </div>
+   
+          <div className="mb-1">
+      <label htmlFor="tinGstinNumber" className="form-label">
+        TIN/GSTIN Number:
+      </label>
+      <input
+        type="text"
+        id="tinGstinNumber"
+        className="form-control"
+        value={legalInfo.tinGstinNumber}
+        onChange={(e) =>
+          setLegalInfo((prevLegalInfo) => ({
+            ...prevLegalInfo,
+            tinGstinNumber: e.target.value,
+          }))
+        }
+      />
+          </div>
+  </div>
+</div>
+
+      
+
+      <h2 className="text-center">Registered Address</h2>
+
+      <div className="row">
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="addressLine1" className="form-label">
+              Address Line 1:
+            </label>
+            <input
+              type="text"
+              id="addressLine1"
+              className="form-control"
+              value={legalInfo.addressLine1}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  addressLine1: e.target.value,
+                }))
+              }
+            />
+          </div>
+          <div className="mb-1">
+            <label htmlFor="country" className="form-label">
+              Country:
+            </label>
+            <input
+              type="text"
+              id="country"
+              className="form-control"
+              value={legalInfo.country}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  country: e.target.value,
+                }))
+              }
+            />
+          </div>
+          <div className="mb-1">
+            <label htmlFor="state" className="form-label">
+              State:
+            </label>
+            <input
+              type="text"
+              id="state"
+              className="form-control"
+              value={legalInfo.state}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  state: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+      
+          <div className="mb-1">
+            <label htmlFor="addressLine2" className="form-label">
+              Address Line 2:
+            </label>
+            <input
+              type="text"
+              id="addressLine2"
+              className="form-control"
+              value={legalInfo.addressLine2}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  addressLine2: e.target.value,
+                }))
+              }
+            />
+          </div>
+          <div className="mb-1">
+            <label htmlFor="city" className="form-label">
+              City:
+            </label>
+            <input
+              type="text"
+              id="city"
+              className="form-control"
+              value={legalInfo.city}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  city: e.target.value,
+                }))
+              }
+            />
+          </div>
+          <div className="mb-1">
+            <label htmlFor="pincode" className="form-label">
+              Pincode:
+            </label>
+            <input
+              type="text"
+              id="pincode"
+              className="form-control"
+              value={legalInfo.pincode}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  pincode: e.target.value,
+                }))
+              }
+            />
+          </div>
+         
+        </div>
+      </div>
+      <div className="d-flex justify-content-center mt-3">
+       
+          <button type="button" className="btn btn-secondary me-2" onClick={handleCancel} >
+            Cancel
+          </button>
+       
+        <button type="submit" className="btn btn-primary" >
+         Save
+        </button>
+      </div>
+    </div>
+  );
+};
+
+
+const OfficesSection = () => {
+  const [officeData, setOfficeData] = useState([]);
+  const [newOffice, setNewOffice] = useState({
+    addressType: "",
+    addressLine1: "",
+    addressLine2: "",
+    country: "",
+    city: "",
+    pincode: "",
+    state: "",
+    mobileNumber: "",
+    emailAddress: "",
+  });
+
+  const handleAddOffice = () => {
+    setOfficeData((prevData) => [...prevData, newOffice]);
+    setNewOffice({
+      addressType: "",
+      addressLine1: "",
+      addressLine2: "",
+      country: "",
+      city: "",
+      pincode: "",
+      state: "",
+      mobileNumber: "",
+      emailAddress: "",
+    });
+  };
+
+  const handleCancel = () => {
+    setNewOffice({
+      addressType: "",
+      addressLine1: "",
+      addressLine2: "",
+      country: "",
+      city: "",
+      pincode: "",
+      state: "",
+      mobileNumber: "",
+      emailAddress: "",
+    });
+  };
+
+  return (
+    <div className="code">
+    <div className="row">
+  <div className="col-md-12"> {/* Changed col-md-6 to col-md-12 */}
+    <div className="mb-1">
+      <label htmlFor="addressType" className="form-label">
+        Address Type:
+      </label>
+      <select
+        id="addressType"
+        className="form-select"
+        value={newOffice.addressType}
+        onChange={(e) =>
+          setNewOffice((prevOffice) => ({
+            ...prevOffice,
+            addressType: e.target.value,
+          }))
+        }
+      >
+        <option value="">Select Office type</option>
+        <option value="Home">Registered Office</option>
+        <option value="Work">Corporate Office</option>
+              <option value="Other">Branch Office</option>
+              <option value="Home">Client Location</option>
+        <option value="Work">Head Office</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+      <div className="row">
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="addressLine1" className="form-label">
+              Address Line 1:
+            </label>
+            <input
+              type="text"
+              id="addressLine1"
+              className="form-control"
+              value={newOffice.addressLine1}
+              onChange={(e) =>
+                setNewOffice((prevOffice) => ({
+                  ...prevOffice,
+                  addressLine1: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="addressLine2" className="form-label">
+              Address Line 2:
+            </label>
+            <input
+              type="text"
+              id="addressLine2"
+              className="form-control"
+              value={newOffice.addressLine2}
+              onChange={(e) =>
+                setNewOffice((prevOffice) => ({
+                  ...prevOffice,
+                  addressLine2: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="country" className="form-label">
+              Country:
+            </label>
+            <input
+              type="text"
+              id="country"
+              className="form-control"
+              value={newOffice.country}
+              onChange={(e) =>
+                setNewOffice((prevOffice) => ({
+                  ...prevOffice,
+                  country: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="city" className="form-label">
+              City:
+            </label>
+            <input
+              type="text"
+              id="city"
+              className="form-control"
+              value={newOffice.city}
+              onChange={(e) =>
+                setNewOffice((prevOffice) => ({
+                  ...prevOffice,
+                  city: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="pincode" className="form-label">
+              Pincode:
+            </label>
+            <input
+              type="text"
+              id="pincode"
+              className="form-control"
+              value={newOffice.pincode}
+              onChange={(e) =>
+                setNewOffice((prevOffice) => ({
+                  ...prevOffice,
+                  pincode: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="state" className="form-label">
+              State:
+            </label>
+            <input
+              type="text"
+              id="state"
+              className="form-control"
+              value={newOffice.state}
+              onChange={(e) =>
+                setNewOffice((prevOffice) => ({
+                  ...prevOffice,
+                  state: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="mobileNumber" className="form-label">
+              Mobile Number:
+            </label>
+            <input
+              type="text"
+              id="mobileNumber"
+              className="form-control"
+              value={newOffice.mobileNumber}
+              onChange={(e) =>
+                setNewOffice((prevOffice) => ({
+                  ...prevOffice,
+                  mobileNumber: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="emailAddress" className="form-label">
+              Email Address:
+            </label>
+            <input
+              type="text"
+              id="emailAddress"
+              className="form-control"
+              value={newOffice.emailAddress}
+              onChange={(e) =>
+                setNewOffice((prevOffice) => ({
+                  ...prevOffice,
+                  emailAddress: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <button type="button" className="btn btn-primary" onClick={handleAddOffice}>
+          + Add New
+        </button>
+      </div>
+      <div className="mt-3">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Address Type</th>
+              <th>Registered  Address</th>
+              <th>Mobile Number</th>
+              <th>Email Address</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {officeData.map((office, index) => (
+              <tr key={index}>
+                <td>{office.addressType}</td>
+                <td>{office.addressLine1}</td>
+               
+                <td>{office.mobileNumber}</td>
+                <td>{office.emailAddress}</td>
+                <td>
+                  
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="d-flex justify-content-center mt-3">
+        <button type="button" className="btn btn-secondary me-2" onClick={handleCancel}>
+          Cancel
+        </button>
+        <button type="submit" className="btn btn-primary">
+         Save
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const CompanyDetails = () => {
+  const [activeSection, setActiveSection] = useState('about');
+
+  const handleSectionClick = (section) => {
+    setActiveSection(section);
+  };
+
+  return (
+    <div className="companydetails">
+      <div className="button-container">
+        <button
+          className={`section-button ${activeSection === 'about' ? 'active' : ''}`}
+          onClick={() => handleSectionClick('about')}
+        >
+          About
+        </button>
+        <button
+          className={`section-button ${activeSection === 'contact' ? 'active' : ''}`}
+          onClick={() => handleSectionClick('contact')}
+        >
+          Contact Details
+        </button>
+        <button
+          className={`section-button ${activeSection === 'legal' ? 'active' : ''}`}
+          onClick={() => handleSectionClick('legal')}
+        >
+          Legal Information
+        </button>
+        <button
+          className={`section-button ${activeSection === 'offices' ? 'active' : ''}`}
+          onClick={() => handleSectionClick('offices')}
+        >
+          Offices
+        </button>
+      </div>
+
+      <div className="section-data">
+        {activeSection === 'about' && <AboutSection />}
+        {activeSection === 'contact' && <ContactSection />}
+        {activeSection === 'legal' && <LegalSection />}
+        {activeSection === 'offices' && <OfficesSection />}
+      </div>
+    </div>
+  );
+};
+
 const Dashboard = () => {
+  const [activeLink, setActiveLink] = useState(null);
+
+  const handleLinkClick = (index) => {
+    setActiveLink(index);
+  };
+
   return (
     <>
       <header>
@@ -19,32 +909,42 @@ const Dashboard = () => {
                   alt="Avatar"
                   loading="lazy"
                 />
-                <span className="dropdown-profile  big text-dark fw-bold">
+                <span className="dropdown-profile big text-dark fw-bold">
                   User Name
                 </span>
               </div>
 
               <a
                 href="!#"
-                className="list-group-item list-group-item-action py-2 ripple"
+                className={`list-group-item list-group-item-action py-2  ${
+                  activeLink === 0 ? "active" : ""
+                }`}
                 aria-current="true"
+                onClick={() => handleLinkClick(0)}
               >
-                <i className="fas  fa-building me-3 "></i>
-                <span className="  big text-dark fw-bold">Company Details</span>
-              </a>
-              <a
-                href="!#"
-                className="list-group-item list-group-item-action py-2 ripple"
-              >
-                <i className="fas fa-briefcase me-3"></i>
-                <span className="  big text-dark fw-bold">Add a job</span>
+                <i className="fas fa-building me-3"></i>
+                <span className="big text-dark fw-bold">Company Details</span>
               </a>
 
+              {/* Other sidebar links */}
               <a
                 href="!#"
-                className="list-group-item list-group-item-action py-2 ripple"
+                className={`list-group-item list-group-item-action py-2  ${
+                  activeLink === 1 ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick(1)}
               >
-                <i class="fa-solid fa-business-time me-3"></i>
+                <i className="fas fa-briefcase me-3"></i>
+                <span className="big text-dark fw-bold">Add a job</span>
+              </a>
+              <a
+                href="!#"
+                className={`list-group-item list-group-item-action py-2  ${
+                  activeLink === 2 ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick(2)}
+              >
+                <i className="fa-solid fa-business-time me-3"></i>
                 <span className="fw-bold">Jobs</span>
               </a>
               <ul
@@ -52,16 +952,18 @@ const Dashboard = () => {
                 style={{ marginLeft: 30 }}
               >
                 <li className="list-group-item small">Posted Jobs</li>
-                <li className="list-group-item small">Drafts </li>
+                <li className="list-group-item small">Drafts</li>
                 <li className="list-group-item small">Closed Jobs</li>
               </ul>
 
               <a
                 href="!#"
-                className="list-group-item list-group-item-action py-2 ripple"
+                className={`list-group-item list-group-item-action py-2  ${
+                  activeLink === 3 ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick(3)}
               >
-                <i class="fa-solid fa-floppy-disk me-3"></i>
-
+                <i className="fa-solid fa-floppy-disk me-3"></i>
                 <span className="fw-bold">Applications</span>
               </a>
               <ul
@@ -78,23 +980,38 @@ const Dashboard = () => {
 
               <a
                 href="!#"
-                className="list-group-item list-group-item-action py-2 ripple"
+                className={`list-group-item list-group-item-action py-2  ${
+                  activeLink === 4 ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick(4)}
               >
-                <i class="fa-solid fa-gear  me-3"></i>
-                <span className="  big text-dark fw-bold">Setting</span>
+                <i className="fa-solid fa-gear  me-3"></i>
+                <span className="big text-dark fw-bold">Setting</span>
               </a>
 
               <a
                 href="!#"
-                className="list-group-item list-group-item-action py-2 ripple"
+                className={`list-group-item list-group-item-action py-2  ${
+                  activeLink === 5 ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick(5)}
               >
-                <i class="fa-solid fa-right-to-bracket me-3"></i>
-                <span className="  big text-dark fw-bold">Logout</span>
+                <i className="fa-solid fa-right-to-bracket me-3"></i>
+                <span className="big text-dark fw-bold">Logout</span>
               </a>
             </div>
           </div>
         </nav>
         {/* Sidebar */}
+
+        <main>
+          <div className="main-content">
+            {/* Render the content based on the activeLink state */}
+            <div className="content-container">
+              {activeLink === 0 && <CompanyDetails />}
+            </div>
+          </div>
+        </main>
 
         {/* Navbar */}
         <nav
@@ -246,34 +1163,36 @@ const Dashboard = () => {
                     My profile <i className="fas fa-caret-down"></i>
                   </span>
                 </a>
-                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-  <li>
-    <a className="dropdown-item" href="!#">
-      <i className="fas fa-user"></i> View profile
-    </a>
-  </li>
-  <li>
-    <a className="dropdown-item" href="!#">
-      <i className="fas fa-edit"></i> Edit Profile
-    </a>
-  </li>
-  <li>
-    <a className="dropdown-item" href="!#">
-      <i className="fas fa-lock"></i> Security
-    </a>
-  </li>
-  <li>
-    <a className="dropdown-item" href="!#">
-      <i className="fas fa-shield-alt"></i> Privacy
-    </a>
-  </li>
-  <li>
-    <a className="dropdown-item" href="!#">
-      <i className="fas fa-sign-out-alt"></i> Logout
-    </a>
-  </li>
-</ul>
-
+                <ul
+                  className="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="navbarDropdownMenuLink"
+                >
+                  <li>
+                    <a className="dropdown-item" href="!#">
+                      <i className="fas fa-user"></i> View profile
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="!#">
+                      <i className="fas fa-edit"></i> Edit Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="!#">
+                      <i className="fas fa-lock"></i> Security
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="!#">
+                      <i className="fas fa-shield-alt"></i> Privacy
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="!#">
+                      <i className="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
