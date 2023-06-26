@@ -31,7 +31,7 @@ const RenderForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log("FormSaveted:", formData);
+    console.log("Form submitted:", formData);
   };
 
   return (
@@ -885,7 +885,7 @@ const CompanyDetails = () => {
 };
 
 const Dashboard = () => {
-  const [activeLink, setActiveLink] = useState(null);
+  const [activeLink, setActiveLink] = useState(0);
 
   const handleLinkClick = (index) => {
     setActiveLink(index);
