@@ -97,15 +97,18 @@ const RenderForm = () => {
         />
       </div>
       <div className="d-flex justify-content-center">
-        <button type="button" className="btn btn-secondary me-2" onClick={handleCancel}>
+        <button
+          type="button"
+          className="btn btn-secondary me-2"
+          onClick={handleCancel}
+        >
           Cancel
         </button>
         <button type="submit" className="btn btn-primary">
-         Save
+          Save
         </button>
       </div>
     </form>
-
   );
 };
 
@@ -148,106 +151,109 @@ const ContactSection = () => {
   // };
   return (
     <div className="code">
-    <div className="row">
-  <div className="col-md-6">
-    <div className="mb-1">
-      <label htmlFor="title" className="form-label">
-        Title:
-      </label>
-      <select
-        id="title"
-        className="form-select"
-        value={newContact.title}
-        onChange={(e) =>
-          setNewContact((prevContact) => ({
-            ...prevContact,
-            title: e.target.value,
-          }))
-        }
-      >
-        <option value="">Select title</option>
-        <option value="Mr">Mr.</option>
-        <option value="Mrs">Mrs.</option>
-        <option value="Ms">Miss.</option>
-        <option value="Dr">Ms.</option>
-      </select>
-    </div>
-    <div className="mb-1">
-      <label htmlFor="contactNumber" className="form-label">
-        Contact Number:
-      </label>
-      <input
-        type="text"
-        id="contactNumber"
-        className="form-control"
-        value={newContact.contactNumber}
-        onChange={(e) =>
-          setNewContact((prevContact) => ({
-            ...prevContact,
-            contactNumber: e.target.value,
-          }))
-        }
-      />
-          </div>
-  </div>
-  <div className="col-md-6">
-
+      <div className="row">
+        <div className="col-md-6">
           <div className="mb-1">
-      <label htmlFor="personName" className="form-label">
-        Contact Person Name:
-      </label>
-      <input
-        type="text"
-        id="personName"
-        className="form-control"
-        value={newContact.personName}
-        onChange={(e) =>
-          setNewContact((prevContact) => ({
-            ...prevContact,
-            personName: e.target.value,
-          }))
-        }
-      />
-    </div>
-    <div className="mb-1">
-      <label htmlFor="emailAddress" className="form-label">
-        Email Address:
-      </label>
-      <input
-        type="text"
-        id="emailAddress"
-        className="form-control"
-        value={newContact.emailAddress}
-        onChange={(e) =>
-          setNewContact((prevContact) => ({
-            ...prevContact,
-            emailAddress: e.target.value,
-          }))
-        }
-      />
-    </div>
-    <div className="mb-1">
-      <label htmlFor="designation" className="form-label">
-        Designation:
-      </label>
-      <input
-        type="text"
-        id="designation"
-        className="form-control"
-        value={newContact.designation}
-        onChange={(e) =>
-          setNewContact((prevContact) => ({
-            ...prevContact,
-            designation: e.target.value,
-          }))
-        }
-      />
-    </div>
-  </div>
-</div>
+            <label htmlFor="title" className="form-label">
+              Title:
+            </label>
+            <select
+              id="title"
+              className="form-select"
+              value={newContact.title}
+              onChange={(e) =>
+                setNewContact((prevContact) => ({
+                  ...prevContact,
+                  title: e.target.value,
+                }))
+              }
+            >
+              <option value="">Select title</option>
+              <option value="Mr">Mr.</option>
+              <option value="Mrs">Mrs.</option>
+              <option value="Ms">Miss.</option>
+              <option value="Dr">Ms.</option>
+            </select>
+          </div>
+          <div className="mb-1">
+            <label htmlFor="contactNumber" className="form-label">
+              Contact Number:
+            </label>
+            <input
+              type="text"
+              id="contactNumber"
+              className="form-control"
+              value={newContact.contactNumber}
+              onChange={(e) =>
+                setNewContact((prevContact) => ({
+                  ...prevContact,
+                  contactNumber: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="personName" className="form-label">
+              Contact Person Name:
+            </label>
+            <input
+              type="text"
+              id="personName"
+              className="form-control"
+              value={newContact.personName}
+              onChange={(e) =>
+                setNewContact((prevContact) => ({
+                  ...prevContact,
+                  personName: e.target.value,
+                }))
+              }
+            />
+          </div>
+          <div className="mb-1">
+            <label htmlFor="emailAddress" className="form-label">
+              Email Address:
+            </label>
+            <input
+              type="text"
+              id="emailAddress"
+              className="form-control"
+              value={newContact.emailAddress}
+              onChange={(e) =>
+                setNewContact((prevContact) => ({
+                  ...prevContact,
+                  emailAddress: e.target.value,
+                }))
+              }
+            />
+          </div>
+          <div className="mb-1">
+            <label htmlFor="designation" className="form-label">
+              Designation:
+            </label>
+            <input
+              type="text"
+              id="designation"
+              className="form-control"
+              value={newContact.designation}
+              onChange={(e) =>
+                setNewContact((prevContact) => ({
+                  ...prevContact,
+                  designation: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+      </div>
 
       <div>
-        <button type="button" className="btn btn-primary" onClick={handleAddContact}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleAddContact}
+        >
           + Add New
         </button>
       </div>
@@ -284,14 +290,17 @@ const ContactSection = () => {
         </table>
       </div>
       <div className="d-flex justify-content-center">
-        <button type="button" className="btn btn-secondary me-2" onClick={handleCancel}>
+        <button
+          type="button"
+          className="btn btn-secondary me-2"
+          onClick={handleCancel}
+        >
           Cancel
         </button>
         <button type="submit" className="btn btn-primary">
-         Save
+          Save
         </button>
       </div>
-    
     </div>
   );
 };
@@ -325,114 +334,108 @@ const LegalSection = () => {
       state: "",
     });
   };
-  
 
   return (
     <div className="code">
-   
-   <div className="row">
-  <div className="col-md-6">
-    <div className="mb-1">
-      <label htmlFor="companyType" className="form-label">
-        Company Type:
-      </label>
-      <select
-        id="companyType"
-        className="form-select"
-        value={legalInfo.companyType}
-        onChange={(e) =>
-          setLegalInfo((prevLegalInfo) => ({
-            ...prevLegalInfo,
-            companyType: e.target.value,
-          }))
-        }
-      >
-        <option value="">Select company type</option>
-        <option value="Type 1">Sole Propietorship</option>
-        <option value="Type 2">Private Limited </option>
-        <option value="Type 3">Not-for-profit Organization</option>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="companyType" className="form-label">
+              Company Type:
+            </label>
+            <select
+              id="companyType"
+              className="form-select"
+              value={legalInfo.companyType}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  companyType: e.target.value,
+                }))
+              }
+            >
+              <option value="">Select company type</option>
+              <option value="Type 1">Sole Propietorship</option>
+              <option value="Type 2">Private Limited </option>
+              <option value="Type 3">Not-for-profit Organization</option>
               <option value="Type 4">One person Company</option>
-        <option value="Type 4">Limited Liability Partnership</option>
-              
-      </select>
-    </div>
-    
-    <div className="mb-1">
-      <label htmlFor="yearOfRegistration" className="form-label">
-        Year of Registration:
-      </label>
-      <input
-        type="text"
-        id="yearOfRegistration"
-        className="form-control"
-        value={legalInfo.yearOfRegistration}
-        onChange={(e) =>
-          setLegalInfo((prevLegalInfo) => ({
-            ...prevLegalInfo,
-            yearOfRegistration: e.target.value,
-          }))
-        }
-      />
+              <option value="Type 4">Limited Liability Partnership</option>
+            </select>
           </div>
-          <div className="mb-1">
-      <label htmlFor="lastFYTurnover" className="form-label">
-        Last FY Turnover:
-      </label>
-      <input
-        type="text"
-        id="lastFYTurnover"
-        className="form-control"
-        value={legalInfo.lastFYTurnover}
-        onChange={(e) =>
-          setLegalInfo((prevLegalInfo) => ({
-            ...prevLegalInfo,
-            lastFYTurnover: e.target.value,
-          }))
-        }
-      />
-          </div>
-  </div>
-  <div className="col-md-6">
-  
-          <div className="mb-1">
-      <label htmlFor="registrationNumber" className="form-label">
-        Registration Number:
-      </label>
-      <input
-        type="text"
-        id="registrationNumber"
-        className="form-control"
-        value={legalInfo.registrationNumber}
-        onChange={(e) =>
-          setLegalInfo((prevLegalInfo) => ({
-            ...prevLegalInfo,
-            registrationNumber: e.target.value,
-          }))
-        }
-      />
-    </div>
-   
-          <div className="mb-1">
-      <label htmlFor="tinGstinNumber" className="form-label">
-        TIN/GSTIN Number:
-      </label>
-      <input
-        type="text"
-        id="tinGstinNumber"
-        className="form-control"
-        value={legalInfo.tinGstinNumber}
-        onChange={(e) =>
-          setLegalInfo((prevLegalInfo) => ({
-            ...prevLegalInfo,
-            tinGstinNumber: e.target.value,
-          }))
-        }
-      />
-          </div>
-  </div>
-</div>
 
-      
+          <div className="mb-1">
+            <label htmlFor="yearOfRegistration" className="form-label">
+              Year of Registration:
+            </label>
+            <input
+              type="text"
+              id="yearOfRegistration"
+              className="form-control"
+              value={legalInfo.yearOfRegistration}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  yearOfRegistration: e.target.value,
+                }))
+              }
+            />
+          </div>
+          <div className="mb-1">
+            <label htmlFor="lastFYTurnover" className="form-label">
+              Last FY Turnover:
+            </label>
+            <input
+              type="text"
+              id="lastFYTurnover"
+              className="form-control"
+              value={legalInfo.lastFYTurnover}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  lastFYTurnover: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="mb-1">
+            <label htmlFor="registrationNumber" className="form-label">
+              Registration Number:
+            </label>
+            <input
+              type="text"
+              id="registrationNumber"
+              className="form-control"
+              value={legalInfo.registrationNumber}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  registrationNumber: e.target.value,
+                }))
+              }
+            />
+          </div>
+
+          <div className="mb-1">
+            <label htmlFor="tinGstinNumber" className="form-label">
+              TIN/GSTIN Number:
+            </label>
+            <input
+              type="text"
+              id="tinGstinNumber"
+              className="form-control"
+              value={legalInfo.tinGstinNumber}
+              onChange={(e) =>
+                setLegalInfo((prevLegalInfo) => ({
+                  ...prevLegalInfo,
+                  tinGstinNumber: e.target.value,
+                }))
+              }
+            />
+          </div>
+        </div>
+      </div>
 
       <h2 className="text-center">Registered Address</h2>
 
@@ -491,7 +494,6 @@ const LegalSection = () => {
           </div>
         </div>
         <div className="col-md-6">
-      
           <div className="mb-1">
             <label htmlFor="addressLine2" className="form-label">
               Address Line 2:
@@ -543,23 +545,24 @@ const LegalSection = () => {
               }
             />
           </div>
-         
         </div>
       </div>
       <div className="d-flex justify-content-center mt-3">
-       
-          <button type="button" className="btn btn-secondary me-2" onClick={handleCancel} >
-            Cancel
-          </button>
-       
-        <button type="submit" className="btn btn-primary" >
-         Save
+        <button
+          type="button"
+          className="btn btn-secondary me-2"
+          onClick={handleCancel}
+        >
+          Cancel
+        </button>
+
+        <button type="submit" className="btn btn-primary">
+          Save
         </button>
       </div>
     </div>
   );
 };
-
 
 const OfficesSection = () => {
   const [officeData, setOfficeData] = useState([]);
@@ -606,33 +609,35 @@ const OfficesSection = () => {
 
   return (
     <div className="code">
-    <div className="row">
-  <div className="col-md-12"> {/* Changed col-md-6 to col-md-12 */}
-    <div className="mb-1">
-      <label htmlFor="addressType" className="form-label">
-        Address Type:
-      </label>
-      <select
-        id="addressType"
-        className="form-select"
-        value={newOffice.addressType}
-        onChange={(e) =>
-          setNewOffice((prevOffice) => ({
-            ...prevOffice,
-            addressType: e.target.value,
-          }))
-        }
-      >
-        <option value="">Select Office type</option>
-        <option value="Home">Registered Office</option>
-        <option value="Work">Corporate Office</option>
+      <div className="row">
+        <div className="col-md-12">
+          {" "}
+          {/* Changed col-md-6 to col-md-12 */}
+          <div className="mb-1">
+            <label htmlFor="addressType" className="form-label">
+              Address Type:
+            </label>
+            <select
+              id="addressType"
+              className="form-select"
+              value={newOffice.addressType}
+              onChange={(e) =>
+                setNewOffice((prevOffice) => ({
+                  ...prevOffice,
+                  addressType: e.target.value,
+                }))
+              }
+            >
+              <option value="">Select Office type</option>
+              <option value="Home">Registered Office</option>
+              <option value="Work">Corporate Office</option>
               <option value="Other">Branch Office</option>
               <option value="Home">Client Location</option>
-        <option value="Work">Head Office</option>
-      </select>
-    </div>
-  </div>
-</div>
+              <option value="Work">Head Office</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
       <div className="row">
         <div className="col-md-6">
@@ -795,7 +800,11 @@ const OfficesSection = () => {
         </div>
       </div>
       <div>
-        <button type="button" className="btn btn-primary" onClick={handleAddOffice}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleAddOffice}
+        >
           + Add New
         </button>
       </div>
@@ -804,7 +813,7 @@ const OfficesSection = () => {
           <thead>
             <tr>
               <th>Address Type</th>
-              <th>Registered  Address</th>
+              <th>Registered Address</th>
               <th>Mobile Number</th>
               <th>Email Address</th>
               <th></th>
@@ -815,23 +824,25 @@ const OfficesSection = () => {
               <tr key={index}>
                 <td>{office.addressType}</td>
                 <td>{office.addressLine1}</td>
-               
+
                 <td>{office.mobileNumber}</td>
                 <td>{office.emailAddress}</td>
-                <td>
-                  
-                </td>
+                <td></td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
       <div className="d-flex justify-content-center mt-3">
-        <button type="button" className="btn btn-secondary me-2" onClick={handleCancel}>
+        <button
+          type="button"
+          className="btn btn-secondary me-2"
+          onClick={handleCancel}
+        >
           Cancel
         </button>
         <button type="submit" className="btn btn-primary">
-         Save
+          Save
         </button>
       </div>
     </div>
@@ -839,7 +850,7 @@ const OfficesSection = () => {
 };
 
 const CompanyDetails = () => {
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState("about");
 
   const handleSectionClick = (section) => {
     setActiveSection(section);
@@ -849,44 +860,56 @@ const CompanyDetails = () => {
     <div className="companydetails">
       <div className="button-container">
         <button
-          className={`section-button ${activeSection === 'about' ? 'active' : ''}`}
-          onClick={() => handleSectionClick('about')}
+          className={`section-button ${
+            activeSection === "about" ? "active" : ""
+          }`}
+          onClick={() => handleSectionClick("about")}
         >
           About
         </button>
         <button
-          className={`section-button ${activeSection === 'contact' ? 'active' : ''}`}
-          onClick={() => handleSectionClick('contact')}
+          className={`section-button ${
+            activeSection === "contact" ? "active" : ""
+          }`}
+          onClick={() => handleSectionClick("contact")}
         >
           Contact Details
         </button>
         <button
-          className={`section-button ${activeSection === 'legal' ? 'active' : ''}`}
-          onClick={() => handleSectionClick('legal')}
+          className={`section-button ${
+            activeSection === "legal" ? "active" : ""
+          }`}
+          onClick={() => handleSectionClick("legal")}
         >
           Legal Information
         </button>
         <button
-          className={`section-button ${activeSection === 'offices' ? 'active' : ''}`}
-          onClick={() => handleSectionClick('offices')}
+          className={`section-button ${
+            activeSection === "offices" ? "active" : ""
+          }`}
+          onClick={() => handleSectionClick("offices")}
         >
           Offices
         </button>
       </div>
 
       <div className="section-data">
-        {activeSection === 'about' && <AboutSection />}
-        {activeSection === 'contact' && <ContactSection />}
-        {activeSection === 'legal' && <LegalSection />}
-        {activeSection === 'offices' && <OfficesSection />}
+        {activeSection === "about" && <AboutSection />}
+        {activeSection === "contact" && <ContactSection />}
+        {activeSection === "legal" && <LegalSection />}
+        {activeSection === "offices" && <OfficesSection />}
       </div>
     </div>
   );
 };
 
 const Dashboard = () => {
-  const [activeLink, setActiveLink] = useState(0);
+  const [activeLink, setActiveLink] = useState(null);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
   const handleLinkClick = (index) => {
     setActiveLink(index);
   };
@@ -917,6 +940,18 @@ const Dashboard = () => {
               <a
                 href="!#"
                 className={`list-group-item list-group-item-action py-2  ${
+                  activeLink === -1 ? "active" : ""
+                }`}
+                aria-current="true"
+                onClick={() => handleLinkClick(-1)}
+              >
+                <i className="fas fa-home me-3"></i>
+                <span className="big text-dark fw-bold">Home</span>
+              </a>
+
+              <a
+                href="!#"
+                className={`list-group-item list-group-item-action py-2  ${
                   activeLink === 0 ? "active" : ""
                 }`}
                 aria-current="true"
@@ -926,7 +961,6 @@ const Dashboard = () => {
                 <span className="big text-dark fw-bold">Company Details</span>
               </a>
 
-              {/* Other sidebar links */}
               <a
                 href="!#"
                 className={`list-group-item list-group-item-action py-2  ${
@@ -937,25 +971,40 @@ const Dashboard = () => {
                 <i className="fas fa-briefcase me-3"></i>
                 <span className="big text-dark fw-bold">Add a job</span>
               </a>
-              <a
-                href="!#"
-                className={`list-group-item list-group-item-action py-2  ${
-                  activeLink === 2 ? "active" : ""
-                }`}
-                onClick={() => handleLinkClick(2)}
-              >
-                <i className="fa-solid fa-business-time me-3"></i>
-                <span className="fw-bold">Jobs</span>
-              </a>
-              <ul
-                className="list-group list-group-flush "
-                style={{ marginLeft: 30 }}
-              >
-                <li className="list-group-item small">Posted Jobs</li>
-                <li className="list-group-item small">Drafts</li>
-                <li className="list-group-item small">Closed Jobs</li>
-              </ul>
 
+
+              
+              <a
+        href="#!"
+        className={`list-group-item list-group-item-action py-2  ${
+          activeLink === 2 ? "active" : ""
+        }`}
+        onClick={() => handleLinkClick(2)}
+        onMouseEnter={toggleDropdown}
+        onMouseLeave={toggleDropdown}
+      >
+        <i className="fa-solid fa-business-time me-3"></i>
+        <span className="fw-bold">Jobs</span>
+      </a>
+      {isDropdownOpen && (
+        <ul className="list-group " style={{ marginLeft: 30 }}>
+          <li className="list-group-item small">Posted Jobs</li>
+          <li className="list-group-item small">Drafts</li>
+          <li className="list-group-item small">Closed Jobs</li>
+        </ul>
+      )}
+
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
               <a
                 href="!#"
                 className={`list-group-item list-group-item-action py-2  ${
@@ -1196,17 +1245,49 @@ const Dashboard = () => {
               </li>
             </ul>
           </div>
-          {/* Container wrapper */}
         </nav>
-        {/* Navbar */}
-      </header>
-      {/*Main Navigation*/}
+        <nav className="navbar navbar-expand-md navbar-light fixed-bottom shadow-2-strong bg-white shadow d-md-none  pt-3 pb-2 pr-0">
+          <div className="container-fluid">
+            <ul className="navbar-nav d-flex flex-row justify-content-center w-100">
+              <li className="nav-item text-center">
+                <a className="nav-link" href="!#">
+                  <i className="fas fa-home mx-auto"></i>
+                  <span>Home</span>
+                </a>
+              </li>
+              <li className="nav-item text-center">
+                <a className="nav-link" href="!#">
+                  <i className="fas fa-briefcase mx-auto"></i>
+                  <span>Jobs</span>
+                </a>
+              </li>
+              <li className="nav-item text-center ">
+                <a className="nav-link add-job-link" href="!#">
+                  <span className="add-job-icon ">+</span>
 
-      {/*Main layout*/}
+                  <span className="add-job-text">Add a Job</span>
+                </a>
+              </li>
+              <li className="nav-item text-center">
+                <a className="nav-link" href="!#">
+                  <i className="fas fa-file-alt mx-auto "></i>
+                  <span>Application</span>
+                </a>
+              </li>
+              <li className="nav-item text-center">
+                <a className="nav-link" href="!#">
+                  <i className="fas fa-user mx-auto"></i>
+                  <span>Profiles</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
       <main style={{ marginTop: "58px" }}>
         <div className="container pt-4"></div>
       </main>
-      {/*Main layout*/}
     </>
   );
 };
