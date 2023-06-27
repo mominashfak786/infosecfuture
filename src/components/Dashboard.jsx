@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../styles/Dashboard.css";
 
 const RenderForm = () => {
@@ -36,79 +36,80 @@ const RenderForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-1">
-        <label htmlFor="companyName" className="form-label">
-          Company Name:
-        </label>
-        <input
-          type="text"
-          id="companyName"
-          className="form-control"
-          value={formData.companyName}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-1">
-        <label htmlFor="industry" className="form-label">
-          Industry:
-        </label>
-        <input
-          type="text"
-          id="industry"
-          className="form-control"
-          value={formData.industry}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-1">
-        <label htmlFor="description" className="form-label">
-          Description:
-        </label>
-        <textarea
-          id="description"
-          className="form-control"
-          rows="2"
-          value={formData.description}
-          onChange={handleChange}
-        ></textarea>
-      </div>
-      <div className="mb-1">
-        <label htmlFor="website" className="form-label">
-          Website:
-        </label>
-        <input
-          type="text"
-          id="website"
-          className="form-control"
-          value={formData.website}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="employeeStrength" className="form-label">
-          Employee Strength:
-        </label>
-        <input
-          type="text"
-          id="employeeStrength"
-          className="form-control"
-          value={formData.employeeStrength}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="d-flex justify-content-center">
-        <button
-          type="button"
-          className="btn btn-secondary me-2"
-          onClick={handleCancel}
-        >
-          Cancel
-        </button>
-        <button type="submit" className="btn btn-primary">
-          Save
-        </button>
-      </div>
-    </form>
+    <div className="mb-1">
+      <label htmlFor="companyName" className="form-label">
+        Company Name:
+      </label>
+      <input
+        type="text"
+        id="companyName"
+        className="form-control form-control-line" // Added form-control-line class
+        value={formData.companyName}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="mb-1">
+      <label htmlFor="industry" className="form-label">
+        Industry:
+      </label>
+      <input
+        type="text"
+        id="industry"
+        className="form-control form-control-line" // Added form-control-line class
+        value={formData.industry}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="mb-1">
+      <label htmlFor="description" className="form-label">
+        Description:
+      </label>
+      <textarea
+        id="description"
+        className="form-control form-control-line" // Added form-control-line class
+        rows="2"
+        value={formData.description}
+        onChange={handleChange}
+      ></textarea>
+    </div>
+    <div className="mb-1">
+      <label htmlFor="website" className="form-label">
+        Website:
+      </label>
+      <input
+        type="text"
+        id="website"
+        className="form-control form-control-line" // Added form-control-line class
+        value={formData.website}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="mb-3">
+      <label htmlFor="employeeStrength" className="form-label">
+        Employee Strength:
+      </label>
+      <input
+        type="text"
+        id="employeeStrength"
+        className="form-control form-control-line" // Added form-control-line class
+        value={formData.employeeStrength}
+        onChange={handleChange}
+      />
+    </div>
+    <div className="d-flex justify-content-center">
+      <button
+        type="button"
+        className="btn btn-secondary me-2"
+        onClick={handleCancel}
+      >
+        Cancel
+      </button>
+      <button type="submit" className="btn btn-primary">
+        Save & Next
+      </button>
+    </div>
+  </form>
+  
   );
 };
 
@@ -182,7 +183,7 @@ const ContactSection = () => {
             <input
               type="text"
               id="contactNumber"
-              className="form-control"
+              className="form-control form-control-line"
               value={newContact.contactNumber}
               onChange={(e) =>
                 setNewContact((prevContact) => ({
@@ -201,7 +202,7 @@ const ContactSection = () => {
             <input
               type="text"
               id="personName"
-              className="form-control"
+              className="form-control form-control-line"
               value={newContact.personName}
               onChange={(e) =>
                 setNewContact((prevContact) => ({
@@ -218,7 +219,7 @@ const ContactSection = () => {
             <input
               type="text"
               id="emailAddress"
-              className="form-control"
+              className="form-control form-control-line"
               value={newContact.emailAddress}
               onChange={(e) =>
                 setNewContact((prevContact) => ({
@@ -235,7 +236,7 @@ const ContactSection = () => {
             <input
               type="text"
               id="designation"
-              className="form-control"
+              className="form-control form-control-line"
               value={newContact.designation}
               onChange={(e) =>
                 setNewContact((prevContact) => ({
@@ -257,15 +258,14 @@ const ContactSection = () => {
           + Add New
         </button>
       </div>
-      <div className="mt-3">
+      <div className="mt-3 ss">
         <table className="table">
           <thead>
             <tr>
-              <th>Contact Person</th>
-              <th>Contact Number</th>
-              <th>Email Address</th>
-              <th>Designation</th>
-              <th></th>
+              <th className="ss white-space: nowrap;">Contact Person</th>
+              <th className="ss white-space: nowrap;">Contact Number</th>
+              <th className="ss white-space: nowrap;">Email Address</th>
+              <th className="ss white-space: nowrap;">Role</th>
             </tr>
           </thead>
           <tbody>
@@ -276,13 +276,7 @@ const ContactSection = () => {
                 <td>{contact.emailAddress}</td>
                 <td>{contact.designation}</td>
                 <td>
-                  {/* <button
-                    type="button"
-                    className="btn btn-danger"
-                    onClick={() => handleDeleteContact(index)}
-                  >
-                    Delete
-                  </button> */}
+                
                 </td>
               </tr>
             ))}
@@ -298,7 +292,7 @@ const ContactSection = () => {
           Cancel
         </button>
         <button type="submit" className="btn btn-primary">
-          Save
+        Save & Next
         </button>
       </div>
     </div>
@@ -370,7 +364,7 @@ const LegalSection = () => {
             <input
               type="text"
               id="yearOfRegistration"
-              className="form-control"
+              className="form-control form-control-line"
               value={legalInfo.yearOfRegistration}
               onChange={(e) =>
                 setLegalInfo((prevLegalInfo) => ({
@@ -387,7 +381,7 @@ const LegalSection = () => {
             <input
               type="text"
               id="lastFYTurnover"
-              className="form-control"
+              className="form-control form-control-line"
               value={legalInfo.lastFYTurnover}
               onChange={(e) =>
                 setLegalInfo((prevLegalInfo) => ({
@@ -406,7 +400,7 @@ const LegalSection = () => {
             <input
               type="text"
               id="registrationNumber"
-              className="form-control"
+              className="form-control form-control-line"
               value={legalInfo.registrationNumber}
               onChange={(e) =>
                 setLegalInfo((prevLegalInfo) => ({
@@ -424,7 +418,7 @@ const LegalSection = () => {
             <input
               type="text"
               id="tinGstinNumber"
-              className="form-control"
+              className="form-control form-control-line"
               value={legalInfo.tinGstinNumber}
               onChange={(e) =>
                 setLegalInfo((prevLegalInfo) => ({
@@ -448,7 +442,7 @@ const LegalSection = () => {
             <input
               type="text"
               id="addressLine1"
-              className="form-control"
+              className="form-control form-control-line"
               value={legalInfo.addressLine1}
               onChange={(e) =>
                 setLegalInfo((prevLegalInfo) => ({
@@ -465,7 +459,7 @@ const LegalSection = () => {
             <input
               type="text"
               id="country"
-              className="form-control"
+              className="form-control form-control-line"
               value={legalInfo.country}
               onChange={(e) =>
                 setLegalInfo((prevLegalInfo) => ({
@@ -482,7 +476,7 @@ const LegalSection = () => {
             <input
               type="text"
               id="state"
-              className="form-control"
+              className="form-control form-control-line"
               value={legalInfo.state}
               onChange={(e) =>
                 setLegalInfo((prevLegalInfo) => ({
@@ -501,7 +495,7 @@ const LegalSection = () => {
             <input
               type="text"
               id="addressLine2"
-              className="form-control"
+              className="form-control form-control-line"
               value={legalInfo.addressLine2}
               onChange={(e) =>
                 setLegalInfo((prevLegalInfo) => ({
@@ -518,7 +512,7 @@ const LegalSection = () => {
             <input
               type="text"
               id="city"
-              className="form-control"
+              className="form-control form-control-line"
               value={legalInfo.city}
               onChange={(e) =>
                 setLegalInfo((prevLegalInfo) => ({
@@ -535,7 +529,7 @@ const LegalSection = () => {
             <input
               type="text"
               id="pincode"
-              className="form-control"
+              className="form-control form-control-line"
               value={legalInfo.pincode}
               onChange={(e) =>
                 setLegalInfo((prevLegalInfo) => ({
@@ -557,7 +551,7 @@ const LegalSection = () => {
         </button>
 
         <button type="submit" className="btn btn-primary">
-          Save
+          Save & Next
         </button>
       </div>
     </div>
@@ -648,7 +642,7 @@ const OfficesSection = () => {
             <input
               type="text"
               id="addressLine1"
-              className="form-control"
+              className="form-control form-control-line"
               value={newOffice.addressLine1}
               onChange={(e) =>
                 setNewOffice((prevOffice) => ({
@@ -667,7 +661,7 @@ const OfficesSection = () => {
             <input
               type="text"
               id="addressLine2"
-              className="form-control"
+              className="form-control form-control-line"
               value={newOffice.addressLine2}
               onChange={(e) =>
                 setNewOffice((prevOffice) => ({
@@ -688,7 +682,7 @@ const OfficesSection = () => {
             <input
               type="text"
               id="country"
-              className="form-control"
+              className="form-control form-control-line"
               value={newOffice.country}
               onChange={(e) =>
                 setNewOffice((prevOffice) => ({
@@ -707,7 +701,7 @@ const OfficesSection = () => {
             <input
               type="text"
               id="city"
-              className="form-control"
+              className="form-control form-control-line"
               value={newOffice.city}
               onChange={(e) =>
                 setNewOffice((prevOffice) => ({
@@ -728,7 +722,7 @@ const OfficesSection = () => {
             <input
               type="text"
               id="pincode"
-              className="form-control"
+              className="form-control form-control-line"
               value={newOffice.pincode}
               onChange={(e) =>
                 setNewOffice((prevOffice) => ({
@@ -747,7 +741,7 @@ const OfficesSection = () => {
             <input
               type="text"
               id="state"
-              className="form-control"
+              className="form-control form-control-line"
               value={newOffice.state}
               onChange={(e) =>
                 setNewOffice((prevOffice) => ({
@@ -768,7 +762,7 @@ const OfficesSection = () => {
             <input
               type="text"
               id="mobileNumber"
-              className="form-control"
+              className="form-control form-control-line"
               value={newOffice.mobileNumber}
               onChange={(e) =>
                 setNewOffice((prevOffice) => ({
@@ -787,7 +781,7 @@ const OfficesSection = () => {
             <input
               type="text"
               id="emailAddress"
-              className="form-control"
+              className="form-control form-control-line"
               value={newOffice.emailAddress}
               onChange={(e) =>
                 setNewOffice((prevOffice) => ({
@@ -808,8 +802,8 @@ const OfficesSection = () => {
           + Add New
         </button>
       </div>
-      <div className="mt-3">
-        <table className="table">
+      <div className="mt-3 ss">
+        <table className="table ">
           <thead>
             <tr>
               <th>Address Type</th>
@@ -850,54 +844,60 @@ const OfficesSection = () => {
 };
 
 const CompanyDetails = () => {
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState('about');
+  const [isMobileView, setIsMobileView] = useState(false);
 
   const handleSectionClick = (section) => {
     setActiveSection(section);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768); // Adjust the breakpoint as per your requirements
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className="companydetails">
-      <div className="button-container">
+      <div className={`button-container ${isMobileView ? 'mobile-view' : ''}`}>
         <button
-          className={`section-button ${
-            activeSection === "about" ? "active" : ""
-          }`}
-          onClick={() => handleSectionClick("about")}
+          className={`section-button ${activeSection === 'about' ? 'active' : ''}`}
+          onClick={() => handleSectionClick('about')}
         >
           About
         </button>
         <button
-          className={`section-button ${
-            activeSection === "contact" ? "active" : ""
-          }`}
-          onClick={() => handleSectionClick("contact")}
+          className={`section-button ${activeSection === 'contact' ? 'active' : ''}`}
+          onClick={() => handleSectionClick('contact')}
         >
           Contact Details
         </button>
         <button
-          className={`section-button ${
-            activeSection === "legal" ? "active" : ""
-          }`}
-          onClick={() => handleSectionClick("legal")}
+          className={`section-button ${activeSection === 'legal' ? 'active' : ''}`}
+          onClick={() => handleSectionClick('legal')}
         >
           Legal Information
         </button>
         <button
-          className={`section-button ${
-            activeSection === "offices" ? "active" : ""
-          }`}
-          onClick={() => handleSectionClick("offices")}
+          className={`section-button ${activeSection === 'offices' ? 'active' : ''}`}
+          onClick={() => handleSectionClick('offices')}
         >
           Offices
         </button>
       </div>
 
       <div className="section-data">
-        {activeSection === "about" && <AboutSection />}
-        {activeSection === "contact" && <ContactSection />}
-        {activeSection === "legal" && <LegalSection />}
-        {activeSection === "offices" && <OfficesSection />}
+        {activeSection === 'about' && <AboutSection />}
+        {activeSection === 'contact' && <ContactSection />}
+        {activeSection === 'legal' && <LegalSection />}
+        {activeSection === 'offices' && <OfficesSection />}
       </div>
     </div>
   );
@@ -905,11 +905,18 @@ const CompanyDetails = () => {
 
 const Dashboard = () => {
   const [activeLink, setActiveLink] = useState(null);
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [showDropdowns, setShowDropdowns] = useState(false);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
+  const toggleDropdown = (linkNumber) => {
+    setActiveLink(linkNumber);
+    setShowDropdowns(!showDropdowns);
   };
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleLinkClicks = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   const handleLinkClick = (index) => {
     setActiveLink(index);
   };
@@ -932,8 +939,14 @@ const Dashboard = () => {
                   alt="Avatar"
                   loading="lazy"
                 />
-                <span className="dropdown-profile big text-dark fw-bold">
-                  User Name
+                <span
+                  className="dropdown-profile text-dark "
+                  style={{ fontSize: "1.5em" }}
+                >
+                  Update Profile
+                </span>
+                <span className="dropdown-profile text-primary fw-bold">
+                  Update Profile
                 </span>
               </div>
 
@@ -972,61 +985,56 @@ const Dashboard = () => {
                 <span className="big text-dark fw-bold">Add a job</span>
               </a>
 
-
-              
               <a
-        href="#!"
-        className={`list-group-item list-group-item-action py-2  ${
-          activeLink === 2 ? "active" : ""
-        }`}
-        onClick={() => handleLinkClick(2)}
-        onMouseEnter={toggleDropdown}
-        onMouseLeave={toggleDropdown}
-      >
-        <i className="fa-solid fa-business-time me-3"></i>
-        <span className="fw-bold">Jobs</span>
-      </a>
-      {isDropdownOpen && (
-        <ul className="list-group " style={{ marginLeft: 30 }}>
-          <li className="list-group-item small">Posted Jobs</li>
-          <li className="list-group-item small">Drafts</li>
-          <li className="list-group-item small">Closed Jobs</li>
-        </ul>
-      )}
+                href="#!"
+                className={`list-group-item list-group-item-action py-2 ${
+                  activeLink === 2 ? "active" : ""
+                }`}
+                onClick={handleLinkClicks}
+              >
+                <i className="fa-solid fa-business-time me-3"></i>
+                <span className="fw-bold">Jobs</span>
+                <i className="fa-solid fa-chevron-down float-end"></i>
+              </a>
+              {showDropdown && (
+                <ul
+                  className="list-group list-group-flush"
+                  style={{ marginLeft: 30 }}
+                >
+                  <li className="list-group-item small">Posted Jobs</li>
+                  <li className="list-group-item small">Drafts</li>
+                  <li className="list-group-item small">Closed Jobs</li>
+                </ul>
+              )}
 
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
-             
               <a
-                href="!#"
-                className={`list-group-item list-group-item-action py-2  ${
+                href="#!"
+                className={`list-group-item list-group-item-action py-2 ${
                   activeLink === 3 ? "active" : ""
                 }`}
-                onClick={() => handleLinkClick(3)}
+                onClick={() => toggleDropdown(3)}
               >
                 <i className="fa-solid fa-floppy-disk me-3"></i>
                 <span className="fw-bold">Applications</span>
+                <i
+                  className={`fa-solid ${
+                    showDropdown ? "fa-chevron-up" : "fa-chevron-down"
+                  } float-end`}
+                />
               </a>
-              <ul
-                className="list-group list-group-flush "
-                style={{ marginLeft: 30 }}
-              >
-                <li className="list-group-item small">View Applications</li>
-                <li className="list-group-item small">
-                  Shortlisted Candidates
-                </li>
-                <li className="list-group-item small">Hired Candidates</li>
-                <li className="list-group-item small">Rejected Candidates</li>
-              </ul>
-
+              {showDropdowns && (
+                <ul
+                  className="list-group list-group-flush"
+                  style={{ marginLeft: 30 }}
+                >
+                  <li className="list-group-item small">View Applications</li>
+                  <li className="list-group-item small">
+                    Shortlisted Candidates
+                  </li>
+                  <li className="list-group-item small">Hired Candidates</li>
+                  <li className="list-group-item small">Rejected Candidates</li>
+                </ul>
+              )}
               <a
                 href="!#"
                 className={`list-group-item list-group-item-action py-2  ${
@@ -1058,6 +1066,7 @@ const Dashboard = () => {
             {/* Render the content based on the activeLink state */}
             <div className="content-container">
               {activeLink === 0 && <CompanyDetails />}
+              {/* Add other content components based on activeLink value */}
             </div>
           </div>
         </main>
