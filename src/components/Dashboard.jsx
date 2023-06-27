@@ -904,14 +904,14 @@ const CompanyDetails = () => {
 };
 
 const Dashboard = () => {
-  const [activeLink, setActiveLink] = useState(null);
+  const [activeLink, setActiveLink] = useState(-1);
   const [showDropdowns, setShowDropdowns] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = (linkNumber) => {
     setActiveLink(linkNumber);
     setShowDropdowns(!showDropdowns);
   };
-  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleLinkClicks = () => {
     setShowDropdown(!showDropdown);
@@ -919,6 +919,49 @@ const Dashboard = () => {
 
   const handleLinkClick = (index) => {
     setActiveLink(index);
+  };
+
+  const renderNavbar = () => {
+    if (activeLink === -1) {
+      return (
+        <nav className="navbar navbar-expand-md navbar-light fixed-bottom shadow-2-strong bg-white shadow d-md-none pt-3 pb-2 pr-0">
+          <div className="container-fluid">
+            <ul className="navbar-nav d-flex flex-row justify-content-center w-100">
+              <li className="nav-item text-center">
+                <a className="nav-links" href="!#">
+                  <i className="fas fa-home mx-auto"></i>
+                  <span className="nav-text">Home</span>
+                </a>
+              </li>
+              <li className="nav-item text-center">
+                <a className="nav-links" href="!#">
+                  <i className="fas fa-briefcase mx-auto"></i>
+                  <span className="nav-text">Jobs</span>
+                </a>
+              </li>
+              <li className="nav-item text-center">
+                <a className="nav-link add-job-link" href="!#">
+                  <span className="add-job-icon">+</span>
+                  <span className="add-job-text">Add a Job</span>
+                </a>
+              </li>
+              <li className="nav-item text-center">
+                <a className="nav-links" href="!#">
+                  <i className="fas fa-file-alt mx-auto"></i>
+                  <span className="nav-text">Application</span>
+                </a>
+              </li>
+              <li className="nav-item text-center">
+                <a className="nav-links" href="!#">
+                  <i className="fas fa-user mx-auto"></i>
+                  <span className="nav-text">Profiles</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      );
+    }
   };
 
   return (
@@ -1255,43 +1298,8 @@ const Dashboard = () => {
             </ul>
           </div>
         </nav>
-        <nav className="navbar navbar-expand-md navbar-light fixed-bottom shadow-2-strong bg-white shadow d-md-none  pt-3 pb-2 pr-0">
-          <div className="container-fluid">
-            <ul className="navbar-nav d-flex flex-row justify-content-center w-100">
-              <li className="nav-item text-center">
-                <a className="nav-link" href="!#">
-                  <i className="fas fa-home mx-auto"></i>
-                  <span>Home</span>
-                </a>
-              </li>
-              <li className="nav-item text-center">
-                <a className="nav-link" href="!#">
-                  <i className="fas fa-briefcase mx-auto"></i>
-                  <span>Jobs</span>
-                </a>
-              </li>
-              <li className="nav-item text-center ">
-                <a className="nav-link add-job-link" href="!#">
-                  <span className="add-job-icon ">+</span>
+        {renderNavbar()}
 
-                  <span className="add-job-text">Add a Job</span>
-                </a>
-              </li>
-              <li className="nav-item text-center">
-                <a className="nav-link" href="!#">
-                  <i className="fas fa-file-alt mx-auto "></i>
-                  <span>Application</span>
-                </a>
-              </li>
-              <li className="nav-item text-center">
-                <a className="nav-link" href="!#">
-                  <i className="fas fa-user mx-auto"></i>
-                  <span>Profiles</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
       </header>
 
       <main style={{ marginTop: "58px" }}>

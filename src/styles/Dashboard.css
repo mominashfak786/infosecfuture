@@ -138,8 +138,8 @@
   
   .add-job-icon {
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background-color: #fbde02;
     border-radius: 50%;
     color: #000000;
@@ -147,7 +147,7 @@
     font-size: 46px;
     line-height: 50px;
     position: absolute;
-    top: -50px;
+    top: -45px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -169,4 +169,36 @@
   }
 
 
+  .navbar-nav .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 22px;
+
+  }
+  
+  .navbar-nav .nav-link .nav-text {
+    font-size: 15px;
+    margin-top: 4px;
+  }
+  
+  .navbar-nav .nav-link .add-job-icon {
+    font-size: 24px;
+    margin-left: 10px !important;
+    margin-bottom: 4px;
+  }
+  .add-job-text{
+    margin-left: 15px !important;
+  }
+
+
+  .navbar.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    
+  }
+  
   
